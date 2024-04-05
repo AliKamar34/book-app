@@ -17,7 +17,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
-
   @override
   void initState() {
     super.initState();
@@ -25,7 +24,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initAnimation();
   }
 
-  
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,30 +45,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
   }
 
-
-
-
-void initAnimation() {
-     animationController = AnimationController(
+  void initAnimation() {
+    animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    
+
     slidingAnimation =
         Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
             .animate(animationController);
-    
+
     animationController.forward();
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    animationController.dispose();
-  }
-
-
-
 
   void navigationView() {
     Future.delayed(const Duration(seconds: 2), () {
@@ -76,6 +67,4 @@ void initAnimation() {
       );
     });
   }
-
 }
-
