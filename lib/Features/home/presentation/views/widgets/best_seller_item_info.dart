@@ -19,7 +19,7 @@ class BestSellerItemInfo extends StatelessWidget {
               'harry potter and the goblet of fire',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: Styles.textStyle20,
+              style: Styles.textStyle16,
             ),
           ),
           const Text(
