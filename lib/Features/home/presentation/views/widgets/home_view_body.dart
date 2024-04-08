@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/bset_seller_list_view.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_list_view.dart';
 import 'package:bookly_app/core/Utils/styels.dart';
