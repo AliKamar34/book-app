@@ -1,4 +1,3 @@
-
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/Utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -23,5 +22,3 @@ class Bookly extends StatelessWidget {
     );
   }
 }
-
-
