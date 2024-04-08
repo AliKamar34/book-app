@@ -19,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
             height: 18,
           ),
           Text(
-            'Results ',
+            'search Results ',
             style: Styles.textStyle18,
           ),
           SizedBox(
@@ -31,4 +31,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-
