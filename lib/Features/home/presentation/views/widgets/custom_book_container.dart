@@ -1,9 +1,8 @@
-import 'package:bookly_app/core/Utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookContainer extends StatelessWidget {
-  const CustomBookContainer({super.key});
-
+  const CustomBookContainer({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -14,10 +13,10 @@ class CustomBookContainer extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.amber,
-          image: const DecorationImage(
+          // color: Colors.amber,
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(AssetsData.testImage),
+            image: NetworkImage(imageUrl),
           ),
         ),
       ),
