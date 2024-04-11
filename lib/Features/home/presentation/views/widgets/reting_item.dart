@@ -5,9 +5,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RatingItem extends StatelessWidget {
   const RatingItem({
     super.key,
-    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisAlignment = MainAxisAlignment.start, 
   });
   final MainAxisAlignment mainAxisAlignment;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,15 +22,15 @@ class RatingItem extends StatelessWidget {
         const SizedBox(
           width: 6,
         ),
-        const Text(
-          '4.8',
+         const Text(
+          '0',
           style: Styles.textStyle14,
         ),
         const SizedBox(
           width: 3,
         ),
         Text(
-          '(23156)',
+          '(0)',
           style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),
         ),
         const SizedBox(

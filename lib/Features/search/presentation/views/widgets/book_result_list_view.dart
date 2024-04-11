@@ -10,7 +10,10 @@ class BookResultListView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: 8,
       itemBuilder: (context, index) {
-        return const BookListViewItem();
+        return Text('data');
+        //  const BookListViewItem(
+
+        // );
       },
     );
   }

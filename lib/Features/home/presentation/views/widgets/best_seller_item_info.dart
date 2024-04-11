@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 class BestSellerItemInfo extends StatelessWidget {
   const BestSellerItemInfo({
     super.key,
+    required this.bookName,
+    required this.authorName,
   });
+  final String bookName;
+  final String authorName;
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +19,21 @@ class BestSellerItemInfo extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
-            child: const Text(
-              'harry potter and the goblet of fire',
+            child: Text(
+              bookName,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: Styles.textStyle16,
             ),
           ),
-          const Text(
-            'H.K.fglkhfdf',
+          Text(
+            authorName,
             style: Styles.textStyle14,
           ),
           const Row(
             children: [
               Text(
-                '19.99',
+                'Free',
                 style: Styles.textStyle14,
               ),
               Spacer(),

@@ -1,12 +1,17 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_item_info.dart';
 import 'package:bookly_app/core/Utils/app_routes.dart';
-import 'package:bookly_app/core/Utils/assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({
+    super.key,
+    required this.bookModel,
+  });
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,24 +24,26 @@ class BookListViewItem extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 10),
           child: Row(
             children: [
-              AspectRatio(
-                aspectRatio: 2.7 / 3,
-                child: Container(
-                  margin: const EdgeInsets.only(right: 5, left: 5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.amber,
-                    image: const DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(AssetsData.testImage),
-                    ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: AspectRatio(
+                  aspectRatio: 2.7 / 3,
+                  child: CachedNetworkImage(
+                    fit: BoxFit.fill,
+                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
               ),
               const SizedBox(
                 width: 30,
               ),
-              const BestSellerItemInfo()
+              BestSellerItemInfo(
+                bookName: bookModel.volumeInfo.title,
+                authorName: bookModel.volumeInfo.authors![0],
+                
+              ),
             ],
           ),
         ),
