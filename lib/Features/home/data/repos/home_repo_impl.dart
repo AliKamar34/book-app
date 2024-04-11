@@ -13,6 +13,25 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failuer, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.getBooks(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:computer scince');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromBookModel(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFalier.fromDioError(e));
+      }
+      return left(ServerFalier(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failuer, List<BookModel>>> fetchFeturredBooks() async {
+    try {
+      var data = await apiService.getBooks(
           endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -23,15 +42,17 @@ class HomeRepoImpl implements HomeRepo {
       if (e is DioException) {
         return left(ServerFalier.fromDioError(e));
       }
-      return left(ServerFalier(e.toString() ));
+      return left(ServerFalier(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failuer, List<BookModel>>> fetchFeturredBooks() async {
+  Future<Either<Failuer, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
     try {
       var data = await apiService.getBooks(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:programming');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromBookModel(item));

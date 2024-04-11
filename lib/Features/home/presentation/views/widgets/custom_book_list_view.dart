@@ -21,7 +21,7 @@ class CustomListView extends StatelessWidget {
               itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return CustomBookContainer(
-                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail??'',
                 );
               },
             ),

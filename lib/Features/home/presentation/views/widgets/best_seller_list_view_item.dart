@@ -16,7 +16,7 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView);
+        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 100,
@@ -30,7 +30,7 @@ class BookListViewItem extends StatelessWidget {
                   aspectRatio: 2.7 / 3,
                   child: CachedNetworkImage(
                     fit: BoxFit.fill,
-                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                    imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
