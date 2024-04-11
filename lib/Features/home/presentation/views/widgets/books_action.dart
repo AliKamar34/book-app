@@ -6,25 +6,29 @@ class BooksAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return  Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton(
-            text: '19.9 LE',
+            onPressed: () {
+              
+            },
+            text: 'Free',
             backGroundColor: Colors.white,
             textColor: Colors.black,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(12),
               bottomLeft: Radius.circular(12),
             ),
           ),
           CustomButton(
-            text: 'free preview',
-            backGroundColor: Color(0xffef8262),
+            onPressed: (){},
+            text: ' Preview',
+            backGroundColor: const Color(0xffef8262),
             textColor: Colors.white,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(12),
               bottomRight: Radius.circular(12),
             ),
