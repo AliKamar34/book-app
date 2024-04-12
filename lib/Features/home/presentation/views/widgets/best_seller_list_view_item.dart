@@ -41,7 +41,7 @@ class BookListViewItem extends StatelessWidget {
               ),
               BestSellerItemInfo(
                 bookName: bookModel.volumeInfo.title,
-                authorName: bookModel.volumeInfo.authors![0],
+                authorName: bookModel.volumeInfo.authors?[0] ?? '',
                 
               ),
             ],

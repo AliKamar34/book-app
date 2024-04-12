@@ -10,8 +10,20 @@ class SearchResultCubit extends Cubit<SearchResultState> {
   final SearchRepo searchRepo;
 
   Future<void> fetchSearchResult({required String category}) async {
-    emit(SearchResultLoading());
+   
+   
+   
+   
+    if (category == '') {
+  emit(SearchResultInitial());
+  
+} else {
+  emit(SearchResultLoading());
+}
+   
+   
     var result =await searchRepo.fetchSearchedBooks(category: category);
+    
     result.fold(
       (failuer) {
         emit(

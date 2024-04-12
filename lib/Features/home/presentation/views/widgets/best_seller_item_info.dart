@@ -28,6 +28,8 @@ class BestSellerItemInfo extends StatelessWidget {
           ),
           Text(
             authorName,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Styles.textStyle14,
           ),
           const Row(
